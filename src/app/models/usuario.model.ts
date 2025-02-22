@@ -4,5 +4,4 @@ export interface Reserva{
   fechaViaje: string;
   numPersonas: number;
   destinoId: number;
-
 }

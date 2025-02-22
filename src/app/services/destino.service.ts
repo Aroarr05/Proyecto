@@ -7,7 +7,7 @@ import { Destino } from '../models/destino.model';
   providedIn: 'root'
 })
 export class DestinoService {
-  private apiUrl ='assets/destinos.json';
+  private apiUrl ='http://localhost:3001/destinos';
 
   constructor(private http: HttpClient) { }
 
