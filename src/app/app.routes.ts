@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { HomeComponent } from './components/home/home.component';
 import { DestinoCrearComponent } from './components/destino/destino-crear/destino-crear.component';
 import { DestinoEditarComponent } from './components/destino/destino-editar/destino-editar.component';
 import { DestinoListarComponent } from './components/destino/destino-listar/destino-listar.component';
@@ -8,6 +9,7 @@ import { UsuarioListarComponent } from './components/usuario/usuario-listar/usua
 
 
 export const routes: Routes = [
+    { path: '', component: HomeComponent }, 
     { path: 'destino-crear', component: DestinoCrearComponent },
     { path: 'destino-editar/:id', component: DestinoEditarComponent },
     { path: 'destino-listar', component: DestinoListarComponent },
