@@ -1,0 +1,47 @@
+
+/*--------------------FOOTER---------------------*/
+
+footer {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+footer h4 {
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+footer a {
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #0d6efd;
+}
+
+footer .form-control {
+    background-color: #495057;
+    border: none;
+    color: #ffffff;
+}
+
+footer .form-control::placeholder {
+    color: #d6d6d6;
+}
+
+footer .form-control:focus {
+    outline: none;
+    box-shadow: none;
+    border: 1px solid #0d6efd;
+}
+
+footer .btn-primary {
+    background-color: #0d6efd;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+footer .btn-primary:hover {
+    background-color: #0056b3;
+}
