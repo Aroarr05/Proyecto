@@ -3,10 +3,12 @@ import { DestinoService } from '../../../services/destino.service';
 import { Destino } from '../../../models/destino.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-destino-editar',
-  imports: [FormsModule],
+  imports: [FormsModule, RouterModule],
+  standalone:true,
   templateUrl: './destino-editar.component.html',
   styleUrl: './destino-editar.component.css'
 })

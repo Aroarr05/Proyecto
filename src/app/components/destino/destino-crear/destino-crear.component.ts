@@ -4,11 +4,13 @@ import { DestinoService } from '../../../services/destino.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'; 
+import { RouterModule } from '@angular/router';
 
 
 @Component({
   selector: 'app-destino-crear',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterModule],
+  standalone:true,
   templateUrl: './destino-crear.component.html',
   styleUrl: './destino-crear.component.css'
 })

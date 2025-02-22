@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import { Destino } from '../../../models/destino.model';
 import { DestinoService } from '../../../services/destino.service';
-import { RouterLink } from '@angular/router'; 
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+
 
 @Component({
   selector: 'app-destino-listar',
-  imports: [RouterLink, CommonModule],
+  imports: [CommonModule,RouterModule],
+  standalone:true,
   templateUrl: './destino-listar.component.html',
   styleUrl: './destino-listar.component.css'
 })

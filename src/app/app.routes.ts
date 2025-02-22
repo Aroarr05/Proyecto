@@ -10,9 +10,9 @@ import { UsuarioListarComponent } from './components/usuario/usuario-listar/usua
 
 export const routes: Routes = [
     { path: '', component: HomeComponent }, 
-    { path: 'destinos-crear', component: DestinoCrearComponent },
-    { path: 'destinos-editar/:id', component: DestinoEditarComponent },
-    { path: 'destinos-listar', component: DestinoListarComponent },
+    { path: 'destino-crear', component: DestinoCrearComponent },
+    { path: 'destino-editar/:id', component: DestinoEditarComponent },
+    { path: 'destino-listar', component: DestinoListarComponent },
     { path: 'usuario-crear', component: UsuarioCrearComponent },
     { path: 'usuario-editar/:id', component: UsuarioEditarComponent },
     { path: 'usuario-listar', component: UsuarioListarComponent }

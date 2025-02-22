@@ -7,6 +7,7 @@ import { Destino } from '../models/destino.model';
 @Injectable({
   providedIn: 'root'
 })
+
 export class DestinoService {
   private apiUrl ='http://localhost:3001/destinos';
 
