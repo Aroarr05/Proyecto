@@ -1,1 +1,20 @@
-<p>destino-listar works!</p>
+<table class="table">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Ubicación</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let destino of destinos">
+        <td>{{ destino.nombre }}</td>
+        <td>{{ destino.ubicacion }}</td>
+        <td>
+          <a [routerLink]="['/editar-destino', destino.id]" class="btn btn-warning">Editar</a>
+          <button (click)="eliminarDestino(destino.id)" class="btn btn-danger">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  

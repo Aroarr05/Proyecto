@@ -14,4 +14,20 @@ export class DestinoService {
   getDestinos(): Observable<Destino[]>{
     return this.http.get<Destino[]>(this.apiUrl);
   }
+
+  getDestinoPorId(id: number): Observable<Destino> {
+    return this.http.get<Destino>(`${this.apiUrl}/${id}`);
+  }
+
+  agregarDestino(destino: Destino): Observable<Destino>{
+    return this.http.post<Destino>(this.apiUrl, destino);
+  }
+
+  actualizarDestino(id:number, destino: Destino): Observable<Destino>{
+    return this.http.put<Destino>(`${this.apiUrl}/${id}`, destino);
+  }
+
+  eliminarDestino(id:number): Observable<any>{
+    return this.http.delete<any>(`${this.apiUrl}/${id}`);
+  }
 }
