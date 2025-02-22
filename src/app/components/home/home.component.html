@@ -1,25 +1,99 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-      <a class="navbar-brand" routerLink="/">
-        <img class="logo" src="./assets/imagenes/logo/logo.png" alt="Logo"> Hop & Discover
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/destinos-listar">Destinos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/about">Acerca de</a>
-          </li>
-        </ul>
+<!-- Banner Principal -->
+<div class="bg-light text-center py-5 banner" style="background-image: url('./assets/imagenes/img-index/Banner/avion.jpg');">
+    <h1 class="display-4">¡Explora el mundo con nosotros!</h1>
+    <p class="lead">Destinos increíbles, experiencias inolvidables.</p>
+    <a routerLink="/destinos-listar" class="btn btn-primary btn-lg">Ver Destinos</a>
+  </div>
+  
+  <!-- Sección de Destinos -->
+  <section id="destinos" class="container py-5">
+    <h2 class="text-center mb-4">Destinos Populares</h2>
+    <div class="row">
+      <!-- Destino 1 -->
+      <div class="col-md-4 mb-4">
+        <div class="card destino">
+          <img src="./assets/imagenes/img-index/Destinos/argentina.jpg" class="card-img-top" alt="Argentina">
+          <div class="card-body">
+            <h5 class="card-title">Argentina</h5>
+            <p class="card-text">Descubre paisajes imponentes como la Patagonia y las Cataratas del Iguazú, junto a la vibrante cultura de Buenos Aires.</p>
+            <a routerLink="/destinos-listar" class="btn btn-primary">Destino</a>
+          </div>
+        </div>
+      </div>
+      <!-- Destino 2 -->
+      <div class="col-md-4 mb-4">
+        <div class="card destino">
+          <img src="./assets/imagenes/img-index/Destinos/caribe.jpg" class="card-img-top" alt="Caribe">
+          <div class="card-body">
+            <h5 class="card-title">Caribe</h5>
+            <p class="card-text">Relájate en playas paradisíacas de aguas turquesas, disfruta de su cultura vibrante y saborea ritmos tropicales únicos.</p>
+            <a routerLink="/destinos-listar" class="btn btn-primary">Destino</a>
+          </div>
+        </div>
+      </div>
+      <!-- Destino 3 -->
+      <div class="col-md-4 mb-4">
+        <div class="card destino">
+          <img src="./assets/imagenes/img-index/Destinos/tokio.jpg" class="card-img-top" alt="Tokio">
+          <div class="card-body">
+            <h5 class="card-title">Tokio</h5>
+            <p class="card-text">Explora la fascinante mezcla de tradición y modernidad con templos históricos, tecnología avanzada y una gastronomía inigualable.</p>
+            <a routerLink="/destinos-listar" class="btn btn-primary">Destino</a>
+          </div>
+        </div>
       </div>
     </div>
-  </nav>
+  </section>
+  
+  <!-- Sección de Servicios -->
+  <section id="servicios" class="bg-light py-5">
+      <div class="container">
+          <h2 class="text-center mb-4">Nuestros Servicios</h2>
+          <div class="row">
+              <div class="col-md-4 text-center">
+                  <i class="bi bi-airplane fs-1 text-primary"></i>
+                  <h4>Vuelos y Transporte</h4>
+                  <p>Reservamos vuelos, trenes y autobuses para tus viajes.</p>
+              </div>
+              <div class="col-md-4 text-center">
+                  <i class="bi bi-building fs-1 text-primary"></i>
+                  <h4>Alojamientos</h4>
+                  <p>Hoteles, hostales y casas vacacionales para cada presupuesto.</p>
+              </div>
+              <div class="col-md-4 text-center">
+                  <i class="bi bi-map fs-1 text-primary"></i>
+                  <h4>Tours Guiados</h4>
+                  <p>Descubre los secretos de cada destino con guías expertos.</p>
+              </div>
+          </div>
+      </div>
+  </section>
+  
+  <!-- Mosaico de Imágenes en Movimiento -->
+  <section id="mosaico" class="container py-5">
+      <h2 class="text-center mb-4">Mosaico de Imágenes</h2>
+      <div class="mosaico-container">
+          <div class="mosaico-items">
+              <div class="mosaico-item">
+                  <img src="./assets/imagenes/img-index/Mosaico/Corea.jpg" alt="Imagen 1">
+              </div>
+              <div class="mosaico-item">
+                  <img src="./assets/imagenes/img-index/Mosaico/Firlandia.jpg" alt="Imagen 2">
+              </div>
+              <div class="mosaico-item">
+                  <img src="./assets/imagenes/img-index/Mosaico/Londres.jpg" alt="Imagen 3">
+              </div>
+              <div class="mosaico-item">
+                  <img src="./assets/imagenes/img-index/Mosaico/Malta.jpg" alt="Imagen 4">
+              </div>
+              <div class="mosaico-item">
+                  <img src="./assets/imagenes/img-index/Mosaico/New-York.jpg" alt="Imagen 5">
+              </div>
+              <div class="mosaico-item">
+                  <img src="./assets/imagenes/img-index/Mosaico/Santander.jpg" alt="Imagen 6">
+              </div>
+          </div>
+      </div>
+  </section>
+
   
