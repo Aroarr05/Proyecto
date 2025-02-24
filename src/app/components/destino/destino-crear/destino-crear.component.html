@@ -1,23 +1,48 @@
-<form (ngSubmit)="agregarDestino()">
-    <div class="mb-3">
-      <label for="nombre" class="form-label">Nombre</label>
-      <input type="text" id="nombre" class="form-control" [(ngModel)]="destino.nombre" name="nombre" required>
+<div class="espacio">
+  <h1>Crear Destino</h1>
+
+  <div class="container">
+    <div class="back-btn-container">
+      <button class="btn btn-primary" (click)="volver()">Volver atrás</button>
     </div>
-    <div class="mb-3">
-      <label for="lat" class="form-label">Latitud</label>
-      <input type="number" id="lat" class="form-control" [(ngModel)]="destino.ubicacion.lat" name="lat" required>
+  </div>
+
+  <div class="container">
+    <div class="form-container">
+      <h2>Formulario:</h2>
+      <form [formGroup]="destinoForm" (ngSubmit)="agregarDestino()">
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre del destino:</label>
+          <input type="text" id="nombre" class="form-control" formControlName="nombre"
+            placeholder="Ingrese el nombre del destino" aria-label="Nombre del destino" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="ubicacion" class="form-label">Ubicación (país/ciudad):</label>
+          <input type="text" class="form-control" id="ubicacion" formControlName="ubicacion"
+            placeholder="Ingrese el país y ciudad" aria-label="Ubicación del destino" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="lat" class="form-label">Latitud:</label>
+          <input type="number" step="any" class="form-control" id="lat" formControlName="lat"
+            placeholder="Ingrese la latitud" aria-label="Latitud" required min="-90" max="90">
+        </div>
+
+        <div class="mb-3">
+          <label for="lng" class="form-label">Longitud:</label>
+          <input type="number" step="any" class="form-control" id="lng" formControlName="lng"
+            placeholder="Ingrese la longitud" aria-label="Longitud" required min="-180" max="180">
+        </div>
+
+        <div class="mb-3">
+          <label for="imagen" class="form-label">Subir imagen:</label>
+          <input type="file" class="form-control" id="imagen" formControlName="imagen" aria-label="Cargar imagen del destino"
+            accept="image/*" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary" aria-label="Enviar formulario" [disabled]="!destinoForm.valid">Enviar</button>
+      </form>
     </div>
-    <div class="mb-3">
-      <label for="lng" class="form-label">Longitud</label>
-      <input type="number" id="lng" class="form-control" [(ngModel)]="destino.ubicacion.lng" name="lng" required>
-    </div>
-    <div class="mb-3">
-      <label for="descripcion" class="form-label">Descripción</label>
-      <textarea id="descripcion" class="form-control" [(ngModel)]="destino.descripcion" name="descripcion" required></textarea>
-    </div>
-    <div class="mb-3">
-      <label for="precio" class="form-label">Precio</label>
-      <input type="number" id="precio" class="form-control" [(ngModel)]="destino.precio" name="precio" required>
-    </div>
-    <button type="submit" class="btn btn-primary">Guardar</button>
-  </form>
+  </div>
+</div>

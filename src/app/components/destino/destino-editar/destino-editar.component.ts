@@ -31,4 +31,8 @@ export class DestinoEditarComponent {
       this.router.navigate(['/destinos-listar']);
     })
   }
+
+  volver(): void {
+    this.router.navigate(['/destino-listar']); 
+  }
 }

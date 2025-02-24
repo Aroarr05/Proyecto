@@ -3,5 +3,5 @@ export interface Destino {
   nombre: string;
   ubicacion: { lat: number; lng: number }; 
   ubicacionTexto: string; 
-  imagen: string;
+  imagen: any;
 }

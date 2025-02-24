@@ -3,44 +3,86 @@
     {
       "id": 1,
       "nombre": "Machu Picchu",
-      "ubicacion": { "lat": -13.1631, "lng": -72.5450 },
+      "ubicacion": {
+        "lat": -13.1631,
+        "lng": -72.545
+      },
       "ubicacionTexto": "Perú/Cuzco",
       "imagen": "./assets/destinos/Machu-Picchu.jpg"
     },
     {
       "id": 2,
       "nombre": "Taj Mahal",
-      "ubicacion": { "lat": 27.1751, "lng": 78.0421 },
+      "ubicacion": {
+        "lat": 27.1751,
+        "lng": 78.0421
+      },
       "ubicacionTexto": "India/Agra",
       "imagen": "./assets/destinos/Taj-Mahal.jpg"
     },
     {
       "id": 3,
       "nombre": "Eiffel Tower",
-      "ubicacion": { "lat": 48.8584, "lng": 2.2945 },
+      "ubicacion": {
+        "lat": 48.8584,
+        "lng": 2.2945
+      },
       "ubicacionTexto": "Francia/París",
       "imagen": "./assets/destinos/Eiffel-Tower.jpg"
     },
     {
       "id": 4,
       "nombre": "Gran Cañón",
-      "ubicacion": { "lat": 36.1069, "lng": -112.1129 },
+      "ubicacion": {
+        "lat": 36.1069,
+        "lng": -112.1129
+      },
       "ubicacionTexto": "EE.UU./Arizona",
       "imagen": "./assets/destinos/Gran-Canon.jpg"
     },
     {
       "id": 5,
       "nombre": "Colosseum",
-      "ubicacion": { "lat": 41.8902, "lng": 12.4922 },
+      "ubicacion": {
+        "lat": 41.8902,
+        "lng": 12.4922
+      },
       "ubicacionTexto": "Italia/Roma",
       "imagen": "./assets/destinos/Colosseum.jpg"
     },
     {
       "id": 6,
       "nombre": "Great Wall of China",
-      "ubicacion": { "lat": 40.4319, "lng": 116.5704 },
+      "ubicacion": {
+        "lat": 40.4319,
+        "lng": 116.5704
+      },
       "ubicacionTexto": "China",
       "imagen": "./assets/destinos/Great-Wall-of-China.jpg"
+    },
+    {
+      "id": "cc06",
+      "nombre": "Aroa ",
+      "ubicacion": "kk",
+      "lat": -55,
+      "lng": 75,
+      "imagen": "C:\\fakepath\\WhatsApp Image 2024-12-22 at 12.46.38.jpeg"
+    },
+    {
+      "id": "4c96",
+      "nombre": "Aroa ",
+      "ubicacion": "kk",
+      "lat": -9,
+      "lng": 5,
+      "imagen": "C:\\fakepath\\WhatsApp Image 2024-12-22 at 13.22.20.jpeg"
+    },
+    {
+      "id": "aa45",
+      "nombre": "Aroa77",
+      "ubicacion": "estados unidos",
+      "lat": -74,
+      "lng": 44,
+      "imagen": "C:\\fakepath\\jkcaptura.png"
     }
   ]
 }
