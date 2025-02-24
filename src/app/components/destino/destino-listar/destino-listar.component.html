@@ -34,7 +34,7 @@
           <img [src]="destino.imagen" [alt]="destino.nombre" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title">{{ destino.nombre }}</h5>
-            <p class="card-text">{{ destino.ubicacion.lat }}, {{ destino.ubicacion.lng }}</p>
+            <p class="card-text">{{ destino.ubicacionTexto }}</p> <!-- Aquí mostramos la ubicación en formato texto -->
           </div>
           <div class="card-footer">
             <small>Latitud: {{ destino.ubicacion.lat }}, Longitud: {{ destino.ubicacion.lng }}</small>
@@ -44,3 +44,4 @@
     </div>
   </div>
 </div>
+
