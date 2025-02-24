@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "mi-proyecto": {
+    "proyecto": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/mi-proyecto",
+            "outputPath": "dist/proyecto",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -27,15 +27,9 @@
               }
             ],
             "styles": [
-              "src/styles.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css"
+              "src/styles.css"
             ],
-            "scripts": [
-              "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/@popperjs/core/dist/umd/popper.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js"
-            ],
+            "scripts": [],
             "server": "src/main.server.ts",
             "outputMode": "server",
             "ssr": {
@@ -70,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "mi-proyecto:build:production"
+              "buildTarget": "proyecto:build:production"
             },
             "development": {
-              "buildTarget": "mi-proyecto:build:development"
+              "buildTarget": "proyecto:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -103,8 +97,5 @@
         }
       }
     }
-  },
-  "cli": {
-    "analytics": "63ac59ce-ab9a-4914-90b3-c6fbfc4a996e"
   }
 }
