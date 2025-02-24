@@ -1,46 +1,46 @@
 {
   "destinos": [
     {
-      "nombreDestino": "Machu Picchu",
-      "ubicacion": "Perú/Cuzco",
-      "latitud": -13.1631,
-      "longitud": -72.5450,
-      "imagen": "./../assets/imagenes/destinos/Machu-Picchu.jpg"
+      "id": 1,
+      "nombre": "Machu Picchu",
+      "ubicacion": { "lat": -13.1631, "lng": -72.5450 },
+      "ubicacionTexto": "Perú/Cuzco",
+      "imagen": "./assets/destinos/Machu-Picchu.jpg"
     },
     {
-      "nombreDestino": "Taj Mahal",
-      "ubicacion": "India/Agra",
-      "latitud": 27.1751,
-      "longitud": 78.0421,
-      "imagen": "./../assets/imagenes/destinos/Taj-Mahal.jpg"
+      "id": 2,
+      "nombre": "Taj Mahal",
+      "ubicacion": { "lat": 27.1751, "lng": 78.0421 },
+      "ubicacionTexto": "India/Agra",
+      "imagen": "./assets/destinos/Taj-Mahal.jpg"
     },
     {
-      "nombreDestino": "Eiffel Tower",
-      "ubicacion": "Francia/París",
-      "latitud": 48.8584,
-      "longitud": 2.2945,
-      "imagen": "./../assets/imagenes/destinos/Eiffel-Tower.jpg"
+      "id": 3,
+      "nombre": "Eiffel Tower",
+      "ubicacion": { "lat": 48.8584, "lng": 2.2945 },
+      "ubicacionTexto": "Francia/París",
+      "imagen": "./assets/destinos/Eiffel-Tower.jpg"
     },
     {
-      "nombreDestino": "Gran Cañón",
-      "ubicacion": "EE.UU./Arizona",
-      "latitud": 36.1069,
-      "longitud": -112.1129,
-      "imagen": "./../assets/imagenes/destinos/Gran-Canon.jpg"
+      "id": 4,
+      "nombre": "Gran Cañón",
+      "ubicacion": { "lat": 36.1069, "lng": -112.1129 },
+      "ubicacionTexto": "EE.UU./Arizona",
+      "imagen": "./assets/destinos/Gran-Canon.jpg"
     },
     {
-      "nombreDestino": "Colosseum",
-      "ubicacion": "Italia/Roma",
-      "latitud": 41.8902,
-      "longitud": 12.4922,
-      "imagen": "./../assets/imagenes/destinos/Colosseum.jpg"
+      "id": 5,
+      "nombre": "Colosseum",
+      "ubicacion": { "lat": 41.8902, "lng": 12.4922 },
+      "ubicacionTexto": "Italia/Roma",
+      "imagen": "./assets/destinos/Colosseum.jpg"
     },
     {
-      "nombreDestino": "Great Wall of China",
-      "ubicacion": "China",
-      "latitud": 40.4319,
-      "longitud": 116.5704,
-      "imagen": "./../assets/imagenes/destinos/Great-Wall-of-China.jpg"
+      "id": 6,
+      "nombre": "Great Wall of China",
+      "ubicacion": { "lat": 40.4319, "lng": 116.5704 },
+      "ubicacionTexto": "China",
+      "imagen": "./assets/destinos/Great-Wall-of-China.jpg"
     }
   ]
 }
