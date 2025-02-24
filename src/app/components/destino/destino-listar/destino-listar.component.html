@@ -1,1 +1,48 @@
-<p>destino-listar works!</p>
+
+<div class="bg-light text-center py-5 banner"
+  style="background-image: url('./../assets/img-index/Banner/avion.jpg'); background-size: cover; background-position: center;">
+  <div class="button">
+    <a [routerLink]="['/destino-crear']" class="btn btn-primary">Crear</a>
+    <a [routerLink]="['/destino-editar/:id']" class="btn btn-primary">Editar</a>
+  </div>
+  <br>
+
+
+  <div class="bg-white py-3">
+    <div class="container">
+      <form class="row g-3 align-items-center" (ngSubmit)="buscarDestinos()">
+        <div class="col-md-10">
+          <label for="inputDestino" class="form-label">¿Qué destino quieres buscar?</label>
+          <input type="text" class="form-control" id="inputDestino" placeholder="Destino" [(ngModel)]="filtro"
+            name="filtro">
+        </div>
+
+        <div class="col-md-2">
+          <button type="submit" class="btn btn-primary" style="width: 150px;">
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<div class="espacio">
+  <div class="container my-5">
+    <div class="row" id="destinos-container">
+      <div *ngFor="let destino of destinosFiltrados" class="col-12 col-md-6 col-lg-4">
+        <div class="card">
+          <img [src]="destino.imagen" [alt]="destino.nombre" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">{{ destino.nombre }}</h5>
+            <p class="card-text">{{ destino.ubicacion.lat }}, {{ destino.ubicacion.lng }}</p>
+          </div>
+          <div class="card-footer">
+            <small>Latitud: {{ destino.ubicacion.lat }}, Longitud: {{ destino.ubicacion.lng }}</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
