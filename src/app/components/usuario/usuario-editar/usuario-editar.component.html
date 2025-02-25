@@ -39,8 +39,17 @@
 
                 <div class="mb-3">
                     <label for="password" class="form-label">Contraseña:</label>
-                    <input type="password" class="form-control" id="password" formControlName="password"
-                        placeholder="Ingrese la nueva contraseña" aria-label="Contraseña" required min="6">
+                    <div class="input-group">
+                        <input [type]="passwordVisible ? 'text' : 'password'" class="form-control" id="password"
+                            formControlName="password" placeholder="Ingrese la nueva contraseña" aria-label="Contraseña"
+                            required minlength="6">
+                        <div class="input-group-append">
+                            <button type="button" class="btn btn-outline-secondary"
+                                (click)="togglePasswordVisibility()">
+                                <i class="fas" [ngClass]="passwordVisible ? 'fa-eye-slash' : 'fa-eye'"></i>
+                            </button>
+                        </div>
+                    </div>
                     <div *ngIf="usuarioForm.get('password')?.touched && usuarioForm.get('password')?.invalid"
                         class="text-danger">
                         <small *ngIf="usuarioForm.get('password')?.errors?.['required']">La contraseña es
@@ -51,9 +60,18 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="confirmPassword" class="form-label">Confirmar contraseña:</label>
-                    <input type="password" class="form-control" id="confirmPassword" formControlName="confirmPassword"
-                        placeholder="Confirme la nueva contraseña" aria-label="Confirmar contraseña" required>
+                    <label for="confirmPassword" class="form-label">Confirmar Contraseña:</label>
+                    <div class="input-group">
+                        <input [type]="confirmPasswordVisible ? 'text' : 'password'" class="form-control"
+                            id="confirmPassword" formControlName="confirmPassword" placeholder="Confirme la contraseña"
+                            aria-label="Confirmar Contraseña" required>
+                        <div class="input-group-append">
+                            <button type="button" class="btn btn-outline-secondary"
+                                (click)="toggleConfirmPasswordVisibility()">
+                                <i class="fas" [ngClass]="confirmPasswordVisible ? 'fa-eye-slash' : 'fa-eye'"></i>
+                            </button>
+                        </div>
+                    </div>
                     <div *ngIf="usuarioForm.get('confirmPassword')?.touched && usuarioForm.get('confirmPassword')?.invalid"
                         class="text-danger">
                         <small *ngIf="usuarioForm.get('confirmPassword')?.errors?.['required']">La confirmación de la

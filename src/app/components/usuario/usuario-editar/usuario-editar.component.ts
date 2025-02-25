@@ -112,6 +112,16 @@ export class UsuarioEditarComponent implements OnInit {
     }
   }
   
+  passwordVisible: boolean = false;  
+  confirmPasswordVisible: boolean = false;
+
+  togglePasswordVisibility(): void {
+    this.passwordVisible = !this.passwordVisible; 
+  }
+
+  toggleConfirmPasswordVisibility(): void {
+    this.confirmPasswordVisible = !this.confirmPasswordVisible;  
+  }
 
   volver(): void {
     this.router.navigate(['/usuario-listar']);

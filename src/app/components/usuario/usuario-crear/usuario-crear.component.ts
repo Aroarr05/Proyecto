@@ -63,7 +63,16 @@ export class UsuarioCrearComponent {
       alert('Por favor, complete todos los campos correctamente.');
     }
   }
-  
+  passwordVisible: boolean = false;  
+  confirmPasswordVisible: boolean = false;
+
+  togglePasswordVisibility(): void {
+    this.passwordVisible = !this.passwordVisible; 
+  }
+
+  toggleConfirmPasswordVisibility(): void {
+    this.confirmPasswordVisible = !this.confirmPasswordVisible;  
+  }
 
   volver(): void {
     this.router.navigate(['/usuario-listar']);
