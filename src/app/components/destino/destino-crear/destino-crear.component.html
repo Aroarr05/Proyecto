@@ -15,24 +15,40 @@
           <label for="nombre" class="form-label">Nombre del destino:</label>
           <input type="text" id="nombre" class="form-control" formControlName="nombre"
             placeholder="Ingrese el nombre del destino" aria-label="Nombre del destino" required>
+          <div *ngIf="destinoForm.get('nombre')?.touched && destinoForm.get('nombre')?.invalid" class="text-danger">
+            <small *ngIf="destinoForm.get('nombre')?.errors?.['required']">El nombre es obligatorio.</small>
+          </div>
         </div>
 
         <div class="mb-3">
           <label for="ubicacion" class="form-label">Ubicación (país/ciudad):</label>
           <input type="text" class="form-control" id="ubicacion" formControlName="ubicacion"
             placeholder="Ingrese el país y ciudad" aria-label="Ubicación del destino" required>
+          <div *ngIf="destinoForm.get('ubicacion')?.touched && destinoForm.get('ubicacion')?.invalid" class="text-danger">
+            <small *ngIf="destinoForm.get('ubicacion')?.errors?.['required']">La ubicación es obligatoria.</small>
+          </div>
         </div>
 
         <div class="mb-3">
           <label for="lat" class="form-label">Latitud:</label>
           <input type="number" step="any" class="form-control" id="lat" formControlName="lat"
             placeholder="Ingrese la latitud" aria-label="Latitud" required min="-90" max="90">
+          <div *ngIf="destinoForm.get('lat')?.touched && destinoForm.get('lat')?.invalid" class="text-danger">
+            <small *ngIf="destinoForm.get('lat')?.errors?.['required']">La latitud es obligatoria.</small>
+            <small *ngIf="destinoForm.get('lat')?.errors?.['min']">La latitud no puede ser menor a -90.</small>
+            <small *ngIf="destinoForm.get('lat')?.errors?.['max']">La latitud no puede ser mayor a 90.</small>
+          </div>
         </div>
 
         <div class="mb-3">
           <label for="lng" class="form-label">Longitud:</label>
           <input type="number" step="any" class="form-control" id="lng" formControlName="lng"
             placeholder="Ingrese la longitud" aria-label="Longitud" required min="-180" max="180">
+          <div *ngIf="destinoForm.get('lng')?.touched && destinoForm.get('lng')?.invalid" class="text-danger">
+            <small *ngIf="destinoForm.get('lng')?.errors?.['required']">La longitud es obligatoria.</small>
+            <small *ngIf="destinoForm.get('lng')?.errors?.['min']">La longitud no puede ser menor a -180.</small>
+            <small *ngIf="destinoForm.get('lng')?.errors?.['max']">La longitud no puede ser mayor a 180.</small>
+          </div>
         </div>
 
         <div class="mb-3">
