@@ -50,7 +50,7 @@ export class UsuarioCrearComponent {
     if (this.usuarioForm.valid) {
       const usuario = this.usuarioForm.value;
       const usuarioReestructurado = {
-        id: 0, 
+        id: Math.floor(Math.random() * 1000000), 
         nombre: usuario.nombre,
         email: usuario.email,
         password: usuario.password,

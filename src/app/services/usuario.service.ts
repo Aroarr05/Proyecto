@@ -16,19 +16,20 @@ export class UsuarioService {
     return this.http.get<Usuario[]>(this.apiUrl);
   }
 
-  getUsuarioPorEmail(email: string): Observable<Usuario> {
-    return this.http.get<Usuario>(`${this.apiUrl}/${email}`);
+  getUsuarioPorId(id: number): Observable<Usuario> {
+    return this.http.get<Usuario>(`${this.apiUrl}/${id}`);
   }
-
+  
   agregarUsuario(usuario: Usuario): Observable<Usuario> {
     return this.http.post<Usuario>(this.apiUrl, usuario);
   }
 
-  actualizarUsuario(email: string, usuario: Usuario): Observable<Usuario> {
-    return this.http.put<Usuario>(`${this.apiUrl}/${email}`, usuario);
+  actualizarUsuario(id: number, usuario: Usuario): Observable<Usuario> {
+    return this.http.put<Usuario>(`${this.apiUrl}/${id}`, usuario);
   }
-
-  eliminarUsuario(email: string): Observable<any> {
-    return this.http.delete<any>(`${this.apiUrl}/${email}`);
+  
+  eliminarUsuario(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/${id}`);
   }
+  
 }

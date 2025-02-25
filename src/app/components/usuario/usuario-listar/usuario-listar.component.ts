@@ -33,12 +33,14 @@ export class UsuarioListarComponent implements OnInit {
     );
   }
 
-  eliminarUsuario(email: string): void {
-    if (confirm(`¿Eliminar usuario con email ${email}?`)) {
-      this.usuarioService.eliminarUsuario(email).subscribe({
-        next: () => {
-          this.usuariosFiltrados = this.usuariosFiltrados.filter(usuario => usuario.email !== email);
-          console.log(`Usuario con email: ${email} eliminado.`);
+  eliminarUsuario(id: number): void {
+    if (confirm(`¿Eliminar usuario con ID ${id}?`)) {
+      console.log(`Eliminando usuario con ID: ${id}`);  
+      this.usuarioService.eliminarUsuario(id).subscribe({
+        next: (response) => {
+          console.log('Usuario eliminado correctamente', response); 
+          this.usuariosFiltrados = this.usuariosFiltrados.filter(usuario => usuario.id !== id);
+          console.log(`Usuario con ID: ${id} eliminado.`);
         },
         error: (error) => {
           console.error('Error al eliminar usuario:', error);
@@ -47,5 +49,4 @@ export class UsuarioListarComponent implements OnInit {
       });
     }
   }
-
 }

@@ -1,1 +1,70 @@
-<p>usuario-editar works!</p>
+<div class="espacio">
+    <h1>Editar Usuario:</h1>
+
+    <div class="container">
+        <div class="back-btn-container">
+            <button class="btn btn-primary" (click)="volver()">Volver atrás</button>
+        </div>
+    </div>
+    <br>
+    <div class="container">
+        <div class="form-container">
+            <h2>Editar datos</h2>
+
+            <form (ngSubmit)="actualizarUsuario()" *ngIf="mostrarFormulario" class="mt-4" [formGroup]="usuarioForm">
+
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre del usuario:</label>
+                    <input type="text" id="nombre" class="form-control" formControlName="nombre"
+                        placeholder="Ingrese el nombre actualizado del usuario"
+                        aria-label="Nombre actualizado del usuario" required>
+                    <div *ngIf="usuarioForm.get('nombre')?.touched && usuarioForm.get('nombre')?.invalid"
+                        class="text-danger">
+                        <small *ngIf="usuarioForm.get('nombre')?.errors?.['required']">El nombre es obligatorio.</small>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">Correo electrónico:</label>
+                    <input type="email" class="form-control" id="email" formControlName="email"
+                        placeholder="Ingrese el correo electrónico" aria-label="Correo electrónico" required>
+                    <div *ngIf="usuarioForm.get('email')?.touched && usuarioForm.get('email')?.invalid"
+                        class="text-danger">
+                        <small *ngIf="usuarioForm.get('email')?.errors?.['required']">El correo electrónico es
+                            obligatorio.</small>
+                        <small *ngIf="usuarioForm.get('email')?.errors?.['email']">El formato del correo no es
+                            válido.</small>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="form-label">Contraseña:</label>
+                    <input type="password" class="form-control" id="password" formControlName="password"
+                        placeholder="Ingrese la nueva contraseña" aria-label="Contraseña" required min="6">
+                    <div *ngIf="usuarioForm.get('password')?.touched && usuarioForm.get('password')?.invalid"
+                        class="text-danger">
+                        <small *ngIf="usuarioForm.get('password')?.errors?.['required']">La contraseña es
+                            obligatoria.</small>
+                        <small *ngIf="usuarioForm.get('password')?.errors?.['minlength']">La contraseña debe tener al
+                            menos 6 caracteres.</small>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="confirmPassword" class="form-label">Confirmar contraseña:</label>
+                    <input type="password" class="form-control" id="confirmPassword" formControlName="confirmPassword"
+                        placeholder="Confirme la nueva contraseña" aria-label="Confirmar contraseña" required>
+                    <div *ngIf="usuarioForm.get('confirmPassword')?.touched && usuarioForm.get('confirmPassword')?.invalid"
+                        class="text-danger">
+                        <small *ngIf="usuarioForm.get('confirmPassword')?.errors?.['required']">La confirmación de la
+                            contraseña es obligatoria.</small>
+                        <small *ngIf="usuarioForm.hasError('passwordMismatch')">Las contraseñas no coinciden.</small>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-success" aria-label="Actualizar usuario"
+                    [disabled]="!usuarioForm.valid">Actualizar</button>
+            </form>
+        </div>
+    </div>
+</div>
