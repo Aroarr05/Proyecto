@@ -35,19 +35,19 @@
 
       <div class="mb-3">
         <label for="ubicacion" class="form-label">Ubicación (país/ciudad):</label>
-        <input type="text" class="form-control" id="ubicacion" [(ngModel)]="destino.ubicacionTexto" name="ubicacion"
+        <input type="text" class="form-control" id="ubicacion" [(ngModel)]="destino.ubicacion" name="ubicacion"
           placeholder="Ingrese el país y ciudad" aria-label="Ubicación del destino" required>
       </div>
 
       <div class="mb-3">
         <label for="lat" class="form-label">Latitud:</label>
-        <input type="number" step="any" class="form-control" id="lat" [(ngModel)]="destino.ubicacion.lat" name="lat"
+        <input type="number" step="any" class="form-control" id="lat" [(ngModel)]="destino.coordenadas.lat" name="lat"
           placeholder="Ingrese la latitud" aria-label="Latitud" required min="-90" max="90">
       </div>
 
       <div class="mb-3">
         <label for="lng" class="form-label">Longitud:</label>
-        <input type="number" step="any" class="form-control" id="lng" [(ngModel)]="destino.ubicacion.lng" name="lng"
+        <input type="number" step="any" class="form-control" id="lng" [(ngModel)]="destino.coordenadas.lng" name="lng"
           placeholder="Ingrese la longitud" aria-label="Longitud" required min="-180" max="180">
       </div>
 

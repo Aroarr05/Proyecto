@@ -37,11 +37,12 @@
 
         <div class="mb-3">
           <label for="imagen" class="form-label">Subir imagen:</label>
-          <input type="file" class="form-control" id="imagen" formControlName="imagen" aria-label="Cargar imagen del destino"
-            accept="image/*" required>
+          <input type="file" class="form-control" id="imagen" formControlName="imagen"
+            aria-label="Cargar imagen del destino" accept="image/*" required (change)="manejarCambioImagen($event)">
         </div>
 
-        <button type="submit" class="btn btn-primary" aria-label="Enviar formulario" [disabled]="!destinoForm.valid">Enviar</button>
+        <button type="submit" class="btn btn-primary" aria-label="Enviar formulario"
+          [disabled]="!destinoForm.valid">Enviar</button>
       </form>
     </div>
   </div>

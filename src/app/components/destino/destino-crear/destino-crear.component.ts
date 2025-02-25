@@ -15,7 +15,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 })
 export class DestinoCrearComponent {
 
-  destinoForm: FormGroup; // Formulario reactivo
+  destinoForm: FormGroup; 
 
   constructor(
     private fb: FormBuilder, 
@@ -33,12 +33,37 @@ export class DestinoCrearComponent {
  
   agregarDestino(): void {
     if (this.destinoForm.valid) {
-      const destino = this.destinoForm.value;  
-      this.destinoService.agregarDestino(destino).subscribe(() => {
-        this.router.navigate(['/destino-listar']);
-      });
+      const destino = this.destinoForm.value;
+      if (destino.imagen && destino.imagen.name) {
+        const imagenPath = './assets/destinos/' + destino.imagen.name;
+        console.log('Imagen seleccionada:', imagenPath); // Verificar la ruta
+  
+        const destinoReestructurado = {
+          id: Math.floor(Math.random() * 1000),  
+          nombre: destino.nombre,
+          ubicacion: destino.ubicacion,
+          coordenadas: {
+            lat: destino.lat,
+            lng: destino.lng
+          },
+          imagen: imagenPath
+        };
+        this.destinoService.agregarDestino(destinoReestructurado).subscribe(() => {
+          this.router.navigate(['/destino-listar']);
+        });
+      } else {
+        alert('Por favor, suba una imagen.');
+      }
     } else {
       alert('Por favor, complete todos los campos correctamente.');
+    }
+  }
+  
+  manejarCambioImagen(event: any): void {
+    const archivo = event.target.files[0];
+    console.log('Archivo seleccionado:', archivo); // Verificar el archivo
+    if (archivo) {
+      this.destinoForm.get('imagen')?.setValue(archivo);
     }
   }
   
