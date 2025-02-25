@@ -52,11 +52,11 @@
         </div>
 
         <div class="mb-3">
-          <label for="imagen" class="form-label">Subir imagen:</label>
-          <input type="file" class="form-control" id="imagen" formControlName="imagen"
-            aria-label="Cargar imagen del destino" accept="image/*" required (change)="manejarCambioImagen($event)">
+          <label for="imagen" class="form-label">Ruta de la imagen:</label>
+          <input type="text" class="form-control" id="imagen" formControlName="imagen"
+            placeholder="Ingrese la URL de la imagen" aria-label="Ruta de la imagen" required>
         </div>
-
+        
         <button type="submit" class="btn btn-primary" aria-label="Enviar formulario"
           [disabled]="!destinoForm.valid">Enviar</button>
       </form>

@@ -11,50 +11,49 @@
     <div class="form-container">
       <h2>Editar datos</h2>
 
-      <!-- <form (ngSubmit)="comprobarDatos()" id="verifyForm">
+      <form (ngSubmit)="comprobarDatos($event)" id="verifyForm">
         <div class="mb-3">
           <label for="nombreDestinos" class="form-label">Nombre del destino:</label>
-          <input type="text" class="form-control" id="nombreDestinos" [(ngModel)]="destino.nombre"
-            name="nombreDestinos" placeholder="Ingrese el nombre del destino" aria-label="Nombre del destino" required>
+          <input type="text" class="form-control" id="nombreDestinos" formControlName="nombre"
+            placeholder="Ingrese el nombre del destino" aria-label="Nombre del destino" required>
         </div>
 
         <button type="submit" class="btn btn-primary">Comprobar</button>
-      </form> -->
+      </form>
 
       <br>
 
       <p>Una vez comprobados los datos, se mostrará el formulario completo para realizar las modificaciones.</p>
     </div>
 
-    <form (ngSubmit)="actualizarDestino()" *ngIf="mostrarFormulario" class="mt-4">
+    <form (ngSubmit)="actualizarDestino()" *ngIf="mostrarFormulario" class="mt-4" [formGroup]="destinoForm">
       <div class="mb-3">
         <label for="nombre" class="form-label">Nombre del destino:</label>
-        <input type="text" class="form-control" id="nombre" [(ngModel)]="destino.nombre" name="nombre"
+        <input type="text" class="form-control" id="nombre" formControlName="nombre"
           placeholder="Ingrese el nombre actualizado del destino" aria-label="Nombre actualizado del destino" required>
       </div>
 
       <div class="mb-3">
         <label for="ubicacion" class="form-label">Ubicación (país/ciudad):</label>
-        <input type="text" class="form-control" id="ubicacion" [(ngModel)]="destino.ubicacion" name="ubicacion"
+        <input type="text" class="form-control" id="ubicacion" formControlName="ubicacion"
           placeholder="Ingrese el país y ciudad" aria-label="Ubicación del destino" required>
       </div>
 
       <div class="mb-3">
         <label for="lat" class="form-label">Latitud:</label>
-        <input type="number" step="any" class="form-control" id="lat" [(ngModel)]="destino.coordenadas.lat" name="lat"
+        <input type="number" step="any" class="form-control" id="lat" formControlName="lat"
           placeholder="Ingrese la latitud" aria-label="Latitud" required min="-90" max="90">
       </div>
 
       <div class="mb-3">
         <label for="lng" class="form-label">Longitud:</label>
-        <input type="number" step="any" class="form-control" id="lng" [(ngModel)]="destino.coordenadas.lng" name="lng"
+        <input type="number" step="any" class="form-control" id="lng" formControlName="lng"
           placeholder="Ingrese la longitud" aria-label="Longitud" required min="-180" max="180">
       </div>
 
       <div class="mb-3">
         <label for="imagen" class="form-label">Subir imagen:</label>
-        <input type="file" class="form-control" id="imagen" [(ngModel)]="destino.imagen" name="imagen"
-          accept="image/*" required>
+        <input type="file" class="form-control" id="imagen" formControlName="imagen" accept="image/*" required>
       </div>
 
       <button type="submit" class="btn btn-success" aria-label="Actualizar destino">Actualizar</button>

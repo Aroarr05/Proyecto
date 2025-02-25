@@ -5,7 +5,8 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { HttpClient } from '@angular/common/http';  // Importa HttpClient
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-destino-crear',
@@ -20,7 +21,8 @@ export class DestinoCrearComponent {
   constructor(
     private fb: FormBuilder, 
     private destinoService: DestinoService, 
-    private router: Router
+    private router: Router,
+    private http: HttpClient
   ) {
     this.destinoForm = this.fb.group({
       nombre: ['', Validators.required],  
@@ -34,39 +36,37 @@ export class DestinoCrearComponent {
   agregarDestino(): void {
     if (this.destinoForm.valid) {
       const destino = this.destinoForm.value;
-      if (destino.imagen && destino.imagen.name) {
-        const imagenPath = './assets/destinos/' + destino.imagen.name;
-        console.log('Imagen seleccionada:', imagenPath); // Verificar la ruta
-  
+      if (destino.imagen) {
         const destinoReestructurado = {
-          id: Math.floor(Math.random() * 1000),  
+          id: Math.floor(Math.random() * 1000),
           nombre: destino.nombre,
           ubicacion: destino.ubicacion,
           coordenadas: {
             lat: destino.lat,
             lng: destino.lng
           },
-          imagen: imagenPath
+          imagen: destino.imagen
         };
         this.destinoService.agregarDestino(destinoReestructurado).subscribe(() => {
           this.router.navigate(['/destino-listar']);
         });
       } else {
-        alert('Por favor, suba una imagen.');
+        alert('Por favor, ingrese una URL de imagen.');
       }
     } else {
       alert('Por favor, complete todos los campos correctamente.');
     }
   }
   
-  manejarCambioImagen(event: any): void {
-    const archivo = event.target.files[0];
-    console.log('Archivo seleccionado:', archivo); // Verificar el archivo
-    if (archivo) {
-      this.destinoForm.get('imagen')?.setValue(archivo);
-    }
+  subirImagen(archivo: File) {
+    const formData = new FormData();
+    formData.append('imagen', archivo, archivo.name);
+    return this.http.post<{ imagenPath: string }>('/upload', formData)
+      .pipe(
+        map(response => response.imagenPath) 
+      );
   }
-  
+
   volver(): void {
     this.router.navigate(['/destino-listar']); 
   }
