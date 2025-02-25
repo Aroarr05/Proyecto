@@ -1,7 +1,7 @@
 {
   "destinos": [
     {
-      "id": "1",
+      "id": 1,
       "nombre": "Machu Picchu",
       "coordenadas": {
         "lat": -13.1631,
@@ -11,7 +11,7 @@
       "imagen": "./assets/destinos/Machu-Picchu.jpg"
     },
     {
-      "id": "2",
+      "id": 2,
       "nombre": "Taj Mahal",
       "coordenadas": {
         "lat": 27.1751,
@@ -21,7 +21,7 @@
       "imagen": "./assets/destinos/Taj-Mahal.jpg"
     },
     {
-      "id": "3",
+      "id": 3,
       "nombre": "Eiffel Tower",
       "coordenadas": {
         "lat": 48.8584,
@@ -31,7 +31,7 @@
       "imagen": "./assets/destinos/Eiffel-Tower.jpg"
     },
     {
-      "id": "4",
+      "id": 4,
       "nombre": "Gran Cañón",
       "coordenadas": {
         "lat": 36.1069,
@@ -41,7 +41,7 @@
       "imagen": "./assets/destinos/Gran-Canon.jpg"
     },
     {
-      "id": "5",
+      "id": 5,
       "nombre": "Colosseum",
       "coordenadas": {
         "lat": 41.8902,
@@ -51,7 +51,7 @@
       "imagen": "./assets/destinos/Colosseum.jpg"
     },
     {
-      "id": "6",
+      "id": 6,
       "nombre": "Great Wall of China",
       "coordenadas": {
         "lat": 40.4319,

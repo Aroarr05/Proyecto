@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';  // Importa HttpClient
+import { HttpClient } from '@angular/common/http';  
 import { map } from 'rxjs/operators';
 
 @Component({
