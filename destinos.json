@@ -1,14 +1,14 @@
 {
   "destinos": [
     {
-      "id": "1",
       "nombre": "Machu Picchu",
+      "ubicacion": "Perú/Cuzco",
+      "imagen": "./assets/destinos/Machu-Picchu.jpg",
+      "id": "1",
       "coordenadas": {
         "lat": -13.1631,
         "lng": -72.545
-      },
-      "ubicacion": "Perú/Cuzco",
-      "imagen": "./assets/destinos/Machu-Picchu.jpg"
+      }
     },
     {
       "id": "2",
@@ -61,7 +61,7 @@
       "imagen": "./assets/destinos/Great-Wall-of-China.jpg"
     },
     {
-      "id": 131,
+      "id": "131",
       "nombre": "PRUEBA ",
       "ubicacion": "prueba",
       "coordenadas": {

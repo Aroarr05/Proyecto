@@ -1,9 +1,8 @@
-
 <div class="bg-light text-center py-5 banner"
   style="background-image: url('./../assets/img-index/Banner/avion.jpg'); background-size: cover; background-position: center;">
   <div class="button">
     <a [routerLink]="['/destino-crear']" class="btn btn-primary">Crear</a>
-    <a [routerLink]="['/destino-editar/:id']" class="btn btn-primary">Editar</a>
+    <!--<a *ngFor="let destino of destinosFiltrados" [routerLink]="['/destino-editar', destino.id]" class="btn btn-warning btn-sm me-2">Editar</a>-->
   </div>
   <br>
 
@@ -29,19 +28,23 @@
 <div class="espacio">
   <div class="container my-5">
     <div class="row" id="destinos-container">
-      <div *ngFor="let destino of destinosFiltrados" class="col-12 col-md-6 col-lg-4">
-        <div class="card">
+      <div *ngFor="let destino of destinosFiltrados" class="col-12 col-md-6 col-lg-4 mb-4">
+        <div class="card h-100">
           <img [src]="destino.imagen" [alt]="destino.nombre" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title">{{ destino.nombre }}</h5>
             <p class="card-text">{{ destino.ubicacion }}</p> 
           </div>
-          <div class="card-footer">
+          <div class="card-footer d-flex justify-content-between align-items-center">
             <small>Latitud: {{ destino.coordenadas.lat }}, Longitud: {{ destino.coordenadas.lng }}</small>
+            <div class="d-flex">
+              <a [routerLink]="['/destino-editar', destino.id]" class="btn btn-warning btn-sm me-2">Editar</a>
+              <button (click)="eliminarDestino(destino.id)" class="btn btn-danger btn-sm me-2">Eliminar</button>
+              <!--<button (click)="verMapa(destino.coordenadas)" class="btn btn-info btn-sm">Mapa</button>-->
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-

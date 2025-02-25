@@ -1,62 +1,83 @@
 <div class="espacio">
-  <h1>Editar Destino</h1>
+  <h1>Editar Destino:</h1>
 
   <div class="container">
     <div class="back-btn-container">
       <button class="btn btn-primary" (click)="volver()">Volver atrás</button>
     </div>
   </div>
-
+  <br>
   <div class="container">
     <div class="form-container">
       <h2>Editar datos</h2>
-
-      <form (ngSubmit)="comprobarDatos($event)" id="verifyForm">
+      <!--<form (ngSubmit)="comprobarDatos()" id="verifyForm" [formGroup]="verifyForm">
         <div class="mb-3">
           <label for="nombreDestinos" class="form-label">Nombre del destino:</label>
           <input type="text" class="form-control" id="nombreDestinos" formControlName="nombre"
             placeholder="Ingrese el nombre del destino" aria-label="Nombre del destino" required>
+          <div *ngIf="verifyForm.get('nombre')?.touched && verifyForm.get('nombre')?.invalid" class="text-danger">
+            <small *ngIf="verifyForm.get('nombre')?.errors?.['required']">El nombre es obligatorio.</small>
+          </div>
         </div>
-
         <button type="submit" class="btn btn-primary">Comprobar</button>
       </form>
-
       <br>
+      <p>Una vez comprobados los datos, se mostrará el formulario completo para realizar las modificaciones.</p>-->
 
-      <p>Una vez comprobados los datos, se mostrará el formulario completo para realizar las modificaciones.</p>
+      <form (ngSubmit)="actualizarDestino()" *ngIf="mostrarFormulario" class="mt-4" [formGroup]="destinoForm">
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre del destino:</label>
+          <input type="text" id="nombre" class="form-control" formControlName="nombre"
+            placeholder="Ingrese el nombre actualizado del destino" aria-label="Nombre actualizado del destino"
+            required>
+          <div *ngIf="destinoForm.get('nombre')?.touched && destinoForm.get('nombre')?.invalid" class="text-danger">
+            <small *ngIf="destinoForm.get('nombre')?.errors?.['required']">El nombre es obligatorio.</small>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="ubicacion" class="form-label">Ubicación (país/ciudad):</label>
+          <input type="text" class="form-control" id="ubicacion" formControlName="ubicacion"
+            placeholder="Ingrese el país y ciudad" aria-label="Ubicación del destino" required>
+          <div *ngIf="destinoForm.get('ubicacion')?.touched && destinoForm.get('ubicacion')?.invalid"
+            class="text-danger">
+            <small *ngIf="destinoForm.get('ubicacion')?.errors?.['required']">La ubicación es obligatoria.</small>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="lat" class="form-label">Latitud:</label>
+          <input type="number" step="any" class="form-control" id="lat" formControlName="lat"
+            placeholder="Ingrese la latitud" aria-label="Latitud" required min="-90" max="90">
+          <div *ngIf="destinoForm.get('lat')?.touched && destinoForm.get('lat')?.invalid" class="text-danger">
+            <small *ngIf="destinoForm.get('lat')?.errors?.['required']">La latitud es obligatoria.</small>
+            <small *ngIf="destinoForm.get('lat')?.errors?.['min']">La latitud no puede ser menor a -90.</small>
+            <small *ngIf="destinoForm.get('lat')?.errors?.['max']">La latitud no puede ser mayor a 90.</small>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="lng" class="form-label">Longitud:</label>
+          <input type="number" step="any" class="form-control" id="lng" formControlName="lng"
+            placeholder="Ingrese la longitud" aria-label="Longitud" required min="-180" max="180">
+          <div *ngIf="destinoForm.get('lng')?.touched && destinoForm.get('lng')?.invalid" class="text-danger">
+            <small *ngIf="destinoForm.get('lng')?.errors?.['required']">La longitud es obligatoria.</small>
+            <small *ngIf="destinoForm.get('lng')?.errors?.['min']">La longitud no puede ser menor a -180.</small>
+            <small *ngIf="destinoForm.get('lng')?.errors?.['max']">La longitud no puede ser mayor a 180.</small>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="imagen" class="form-label">Ruta de la imagen:</label>
+          <input type="text" class="form-control" id="imagen" formControlName="imagen"
+            placeholder="Ingrese la URL de la imagen" aria-label="Ruta de la imagen" required>
+          <div *ngIf="destinoForm.get('imagen')?.touched && destinoForm.get('imagen')?.invalid" class="text-danger">
+            <small *ngIf="destinoForm.get('imagen')?.errors?.['required']">La ruta de la imagen es obligatoria.</small>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-success" aria-label="Actualizar destino"
+          [disabled]="!destinoForm.valid">Actualizar</button>
+      </form>
     </div>
-
-    <form (ngSubmit)="actualizarDestino()" *ngIf="mostrarFormulario" class="mt-4" [formGroup]="destinoForm">
-      <div class="mb-3">
-        <label for="nombre" class="form-label">Nombre del destino:</label>
-        <input type="text" class="form-control" id="nombre" formControlName="nombre"
-          placeholder="Ingrese el nombre actualizado del destino" aria-label="Nombre actualizado del destino" required>
-      </div>
-
-      <div class="mb-3">
-        <label for="ubicacion" class="form-label">Ubicación (país/ciudad):</label>
-        <input type="text" class="form-control" id="ubicacion" formControlName="ubicacion"
-          placeholder="Ingrese el país y ciudad" aria-label="Ubicación del destino" required>
-      </div>
-
-      <div class="mb-3">
-        <label for="lat" class="form-label">Latitud:</label>
-        <input type="number" step="any" class="form-control" id="lat" formControlName="lat"
-          placeholder="Ingrese la latitud" aria-label="Latitud" required min="-90" max="90">
-      </div>
-
-      <div class="mb-3">
-        <label for="lng" class="form-label">Longitud:</label>
-        <input type="number" step="any" class="form-control" id="lng" formControlName="lng"
-          placeholder="Ingrese la longitud" aria-label="Longitud" required min="-180" max="180">
-      </div>
-
-      <div class="mb-3">
-        <label for="imagen" class="form-label">Subir imagen:</label>
-        <input type="file" class="form-control" id="imagen" formControlName="imagen" accept="image/*" required>
-      </div>
-
-      <button type="submit" class="btn btn-success" aria-label="Actualizar destino">Actualizar</button>
-    </form>
   </div>
-</div>

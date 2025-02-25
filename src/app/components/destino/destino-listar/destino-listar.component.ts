@@ -26,16 +26,21 @@ export class DestinoListarComponent {
     });
   }
 
-  eliminarDestino(id: number): void {
-    this.destinoService.eliminarDestino(id).subscribe(() => {
-      this.destinos = this.destinos.filter(destino => destino.id !== id);
-      this.destinosFiltrados = this.destinosFiltrados.filter(destino => destino.id !== id);
-    });
-  }
-
   buscarDestinos(): void {
     this.destinosFiltrados = this.destinos.filter(destino =>
       destino.nombre.toLowerCase().includes(this.filtro.toLowerCase())
     );
+  }
+
+  eliminarDestino(id: number): void {
+    // Llamada al servicio para eliminar el destino
+    this.destinoService.eliminarDestino(id).subscribe(() => {
+      // Una vez eliminado el destino, actualizamos la lista
+      this.destinosFiltrados = this.destinosFiltrados.filter(destino => destino.id !== id);
+      console.log(`Destino con ID: ${id} eliminado correctamente.`);
+    }, error => {
+      // Manejo de error si la eliminación falla
+      console.error('Error al eliminar el destino:', error);
+    });
   }
 }
