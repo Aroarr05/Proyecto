@@ -12,6 +12,7 @@ import { switchMap } from 'rxjs/operators';
   templateUrl: './usuario-editar.component.html',
   styleUrls: ['./usuario-editar.component.css']
 })
+
 export class UsuarioEditarComponent implements OnInit {
   usuarioForm: FormGroup;
   verifyForm: FormGroup;  

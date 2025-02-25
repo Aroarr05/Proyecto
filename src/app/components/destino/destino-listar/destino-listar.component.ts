@@ -18,8 +18,8 @@ export class DestinoListarComponent implements OnInit, AfterViewInit {
   destinos: Destino[] = [];
   destinosFiltrados: Destino[] = [];
   filtro: string = '';
-  private map: any; // Variable para almacenar la instancia del mapa
-  private L: any; // Variable para almacenar la instancia de Leaflet
+  private map: any; 
+  private L: any; 
 
   constructor(
     private destinoService: DestinoService,
@@ -35,10 +35,8 @@ export class DestinoListarComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
-      // Cargar Leaflet dinámicamente solo en el navegador
       import('leaflet').then((L: typeof import('leaflet')) => {
-        this.L = L; // Almacenar L en una variable de clase
-        // Inicializar el mapa si es necesario
+        this.L = L; 
         this.initializeMap();
       });
     }
@@ -67,7 +65,6 @@ export class DestinoListarComponent implements OnInit, AfterViewInit {
 
   verMapa(coordenadas: Coordenadas): void {
     if (isPlatformBrowser(this.platformId)) {
-      // Si el mapa ya está inicializado, actualiza la vista
       if (this.map) {
         this.map.setView([coordenadas.lat, coordenadas.lng], 13);
         this.L.marker([coordenadas.lat, coordenadas.lng]).addTo(this.map)
@@ -78,9 +75,8 @@ export class DestinoListarComponent implements OnInit, AfterViewInit {
   }
 
   private initializeMap(): void {
-    // Inicializar el mapa solo si no está ya inicializado
     if (!this.map) {
-      this.map = this.L.map('map').setView([0, 0], 2); // Vista inicial del mapa
+      this.map = this.L.map('map').setView([0, 0], 2); 
 
       this.L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

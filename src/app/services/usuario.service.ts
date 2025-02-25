@@ -6,6 +6,7 @@ import { Usuario } from '../models/usuario.model';
 @Injectable({
   providedIn: 'root'
 })
+
 export class UsuarioService {
   
   private apiUrl = 'http://localhost:3002/usuarios';

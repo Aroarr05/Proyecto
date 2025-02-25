@@ -44,7 +44,6 @@ export class UsuarioCrearComponent {
   
     return null;
   }
-  
 
   agregarUsuario(): void {
     if (this.usuarioForm.valid) {
