@@ -2,7 +2,6 @@
   style="background-image: url('./../assets/img-index/Banner/avion.jpg'); background-size: cover; background-position: center;">
   <div class="button">
     <a [routerLink]="['/destino-crear']" class="btn btn-primary">Crear</a>
-    <!--<a *ngFor="let destino of destinosFiltrados" [routerLink]="['/destino-editar', destino.id]" class="btn btn-warning btn-sm me-2">Editar</a>-->
   </div>
   <br>
 
@@ -34,16 +33,22 @@
           <div class="card-body">
             <h5 class="card-title">{{ destino.nombre }}</h5>
             <p class="card-text">{{ destino.ubicacion }}</p> 
+            <button (click)="verMapa(destino.coordenadas)" class="btn btn-info btn-sm">Ver en el Mapa</button>
           </div>
           <div class="card-footer d-flex justify-content-between align-items-center">
             <small>Latitud: {{ destino.coordenadas.lat }}, Longitud: {{ destino.coordenadas.lng }}</small>
             <div class="d-flex">
               <a [routerLink]="['/destino-editar', destino.id]" class="btn btn-warning btn-sm me-2">Editar</a>
               <button (click)="eliminarDestino(destino.id)" class="btn btn-danger btn-sm me-2">Eliminar</button>
-              <!--<button (click)="verMapa(destino.coordenadas)" class="btn btn-info btn-sm">Mapa</button>-->
             </div>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-12">
+        <h3 class="text-center mb-4">Mapa de Destinos</h3>
+        <div id="map" style="height: 500px; width: 100%;"></div>
       </div>
     </div>
   </div>

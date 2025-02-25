@@ -176,3 +176,9 @@ form select:focus {
 .row.g-3.align-items-center .btn-primary i {
     font-size: 1.5rem; 
 }
+/* Leaflet Map Styles */
+#map {
+    height: 400px;  /* Ajusta la altura del mapa */
+    width: 100%;
+  }
+  
