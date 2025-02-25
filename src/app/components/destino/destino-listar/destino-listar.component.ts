@@ -33,14 +33,18 @@ export class DestinoListarComponent {
   }
 
   eliminarDestino(id: number): void {
-    // Llamada al servicio para eliminar el destino
-    this.destinoService.eliminarDestino(id).subscribe(() => {
-      // Una vez eliminado el destino, actualizamos la lista
-      this.destinosFiltrados = this.destinosFiltrados.filter(destino => destino.id !== id);
-      console.log(`Destino con ID: ${id} eliminado correctamente.`);
-    }, error => {
-      // Manejo de error si la eliminación falla
-      console.error('Error al eliminar el destino:', error);
-    });
+    if (confirm(`¿Eliminar destino con ID ${id}?`)) {
+      this.destinoService.eliminarDestino(id).subscribe({
+        next: () => {
+          this.destinosFiltrados = this.destinosFiltrados.filter(destino => destino.id !== id);
+          console.log(`Destino con ID: ${id} eliminado.`);
+        },
+        error: (error) => {
+          console.error('Error al eliminar destino:', error);
+          alert('Error al eliminar destino. Inténtalo más tarde.');
+        }
+      });
+    }
   }
+  
 }

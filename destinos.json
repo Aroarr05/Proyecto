@@ -61,12 +61,12 @@
       "imagen": "./assets/destinos/Great-Wall-of-China.jpg"
     },
     {
-      "id": "131",
-      "nombre": "PRUEBA ",
+      "id": 198,
+      "nombre": "prueba",
       "ubicacion": "prueba",
       "coordenadas": {
-        "lat": 44,
-        "lng": 44
+        "lat": 55,
+        "lng": 55
       },
       "imagen": "https://www.advantour.com/img/japan/images/index.jpg"
     }

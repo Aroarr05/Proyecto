@@ -1,1 +1,49 @@
+<div class="bg-light text-center py-5 banner"
+  style="background-image: url('./../assets/img-index/Banner/avion.jpg'); background-size: cover; background-position: center;">
+  <div class="button">
+    <a [routerLink]="['/usuario-crear']" class="btn btn-primary">Crear</a>
+  </div>
+  <br>
 
+  <div class="bg-white py-3">
+    <div class="container">
+      <form class="row g-3 align-items-center" (ngSubmit)="buscarUsuarios()">
+        <div class="col-md-10">
+          <label for="inputUsuario" class="form-label">¿Qué usuario quieres buscar?</label>
+          <input type="text" class="form-control" id="inputUsuario" placeholder="Usuario" [(ngModel)]="filtro"
+            name="filtro">
+        </div>
+
+        <div class="col-md-2">
+          <button type="submit" class="btn btn-primary w-100">
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="container my-5">
+  <div class="table-responsive">
+    <table class="table table-striped table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let usuario of usuariosFiltrados">
+          <td>{{ usuario.nombre }}</td>
+          <td>{{ usuario.email }}</td>
+          <td>
+            <a [routerLink]="['/usuario-editar', usuario.email]" class="btn btn-warning btn-sm me-2">Editar</a>
+            <button (click)="eliminarUsuario(usuario.email)" class="btn btn-danger btn-sm">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
