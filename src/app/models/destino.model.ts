@@ -1,7 +1,12 @@
+export interface Coordenadas{
+  lat: number;
+  lng: number;
+}
+
 export interface Destino {
   id: number;
   nombre: string;
-  ubicacion: { lat: number; lng: number }; 
-  ubicacionTexto: string; 
+  coordenadas: Coordenadas; 
+  ubicacion: string; 
   imagen: any;
 }
