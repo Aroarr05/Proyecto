@@ -14,32 +14,24 @@ import { isPlatformBrowser } from '@angular/common';
   styleUrls: ['./destino-listar.component.css'],
   standalone: true,
 })
+
 export class DestinoListarComponent implements OnInit, AfterViewInit {
   destinos: Destino[] = [];
   destinosFiltrados: Destino[] = [];
   filtro: string = '';
-  private map: any; 
-  private L: any; 
+  private mapa: any;
+  private L: any;
 
   constructor(
     private destinoService: DestinoService,
     @Inject(PLATFORM_ID) private platformId: any
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.destinoService.getDestinos().subscribe(data => {
       this.destinos = data;
       this.destinosFiltrados = data;
     });
-  }
-
-  ngAfterViewInit(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      import('leaflet').then((L: typeof import('leaflet')) => {
-        this.L = L; 
-        this.initializeMap();
-      });
-    }
   }
 
   buscarDestinos(): void {
@@ -62,25 +54,48 @@ export class DestinoListarComponent implements OnInit, AfterViewInit {
       });
     }
   }
-
-  verMapa(coordenadas: Coordenadas): void {
-    if (isPlatformBrowser(this.platformId)) {
-      if (this.map) {
-        this.map.setView([coordenadas.lat, coordenadas.lng], 13);
-        this.L.marker([coordenadas.lat, coordenadas.lng]).addTo(this.map)
-          .bindPopup(`<b>${coordenadas.lat}, ${coordenadas.lng}</b>`)
-          .openPopup();
-      }
-    }
-  }
-
-  private initializeMap(): void {
-    if (!this.map) {
-      this.map = this.L.map('map').setView([0, 0], 2); 
+  
+  private inicializarMapa(): void {
+    if (!this.mapa) {
+      this.mapa = this.L.map('map').setView([0, 0], 2);
 
       this.L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-      }).addTo(this.map);
+      }).addTo(this.mapa);
+
+      this.L.circle([0, 0], {
+        color: 'purple',       
+        fillColor: 'purple',   
+        fillOpacity: 0.6,      
+        radius: 50000          
+      }).addTo(this.mapa)
+        .bindPopup('<b>Marcador inicial</b>')
+        .openPopup();
+    }
+  }
+
+  ngAfterViewInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      import('leaflet').then((L: typeof import('leaflet')) => {
+        this.L = L;
+        this.inicializarMapa();
+      });
+    }
+  }
+
+  verMapa(coordenadas: Coordenadas): void {
+    if (isPlatformBrowser(this.platformId)) {
+      if (this.mapa) { 
+        this.mapa.setView([coordenadas.lat, coordenadas.lng], 13);
+        this.L.circle([coordenadas.lat, coordenadas.lng], {
+          color: 'purple',
+          fillColor: 'purple',
+          fillOpacity: 0.6,
+          radius: 500
+        }).addTo(this.mapa)
+          .bindPopup(`<b>${coordenadas.lat}, ${coordenadas.lng}</b>`)
+          .openPopup();
+      }
     }
   }
 }
