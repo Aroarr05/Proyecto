@@ -8,5 +8,5 @@ export interface Destino {
   nombre: string;
   coordenadas: Coordenadas; 
   ubicacion: string; 
-  imagen: any;
+  imagen: any; 
 }

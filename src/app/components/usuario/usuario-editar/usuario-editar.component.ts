@@ -25,12 +25,10 @@ export class UsuarioEditarComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute 
   ) {
-    // Formulario de verificación de datos (en este caso, solo nombre)
     this.verifyForm = this.fb.group({
       nombre: ['', Validators.required],
     });
 
-    // Formulario principal de usuario
     this.usuarioForm = this.fb.group({
       nombre: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],

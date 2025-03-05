@@ -19,8 +19,9 @@ export class DestinoListarComponent implements OnInit, AfterViewInit {
   destinos: Destino[] = [];
   destinosFiltrados: Destino[] = [];
   filtro: string = '';
-  private mapa: any;
-  private L: any;
+
+  private mapa: any; // mapa
+  private L: any; // leaflet
 
   constructor(
     private destinoService: DestinoService,
